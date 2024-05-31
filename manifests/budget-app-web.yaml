@@ -1,6 +1,3 @@
- cat budget-app-web.yaml
-# budget-app-web.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
