@@ -4,7 +4,7 @@ default: &default
   pool: 5
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: db  # This should match the service name in docker-compose.yml
+  host: postgres-service  # This should match the service name in docker-compose.yml
 
 development:
   <<: *default
