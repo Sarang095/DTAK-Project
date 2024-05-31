@@ -36,6 +36,6 @@ spec:
     app: budget-app-web
   ports:
     - protocol: TCP
-      port: 3000  # Use a specific port for NodePort
+      port: 80  # Use a specific port for NodePort
       targetPort: 3000
   type: LoadBalancer
