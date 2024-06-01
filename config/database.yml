@@ -1,21 +1,28 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: postgres-service  # This should match the service name in docker-compose.yml
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: budgy_development
+  host: <%= ENV.fetch("DB_HOST") { "db" } %>
+  username: <%= ENV.fetch("DB_USERNAME") { "Budgy" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { "Budgy" } %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
 
 test:
   <<: *default
   database: budgy_test
+  host: <%= ENV.fetch("DB_HOST") { "db" } %>
+  username: <%= ENV.fetch("DB_USERNAME") { "Budgy" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { "Budgy" } %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
 
 production:
   <<: *default
   database: budgy_production
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  host: <%= ENV.fetch("DB_HOST") { "db" } %>
+  username: <%= ENV.fetch("DB_USERNAME") { "Budgy" } %>
+  password: <%= ENV.fetch("DB_PASSWORD") { "Budgy" } %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
