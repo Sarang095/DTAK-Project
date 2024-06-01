@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: budget-app-web
-          image: csag095/budgetapp:v2
+          image: csag095/budgetapp:v3
           ports:
             - containerPort: 3000
           env:
